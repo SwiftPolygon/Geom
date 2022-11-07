@@ -12,12 +12,19 @@ public struct Point {
     public let x: Float
     public let y: Float
     
+    public init(x: Float, y: Float) {
+        self.x = x
+        self.y = y
+    }
+    
 }
 
 public extension Geom {
 
     @inlinable
     func isEqual(a: Point, b: Point) -> Bool {
-        (abs(a.x - b.y) < eps) && abs(a.y - b.y) < eps
+        let sameX = abs(a.x - b.x) < eps
+        let sameY = abs(a.y - b.y) < eps
+        return sameX && sameY
     }
 }

@@ -5,16 +5,20 @@ public struct CrossResult {
     //     1   intersection point is directly on segment's second point
     //     2   intersection point is after segment's second point
     
-    let a: Int
-    let b: Int
+    public let a: Int
+    public let b: Int
     
-    let isCross: Bool
-    let point: Point
+    public let isCross: Bool
+    public let point: Point
 }
 
 public struct Geom {
 
     public let eps: Float
+    
+    public init(eps: Float = 0.00001) {
+        self.eps = eps
+    }
 
     @inlinable
     /// does a->b->c make a straight line?
