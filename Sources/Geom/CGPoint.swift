@@ -22,7 +22,7 @@ public struct Point {
 public extension Geom {
 
     @inlinable
-    func isEqual(a: Point, b: Point) -> Bool {
+    func isSamePoints(_ a: Point, _ b: Point) -> Bool {
         let sameX = abs(a.x - b.x) < eps
         let sameY = abs(a.y - b.y) < eps
         return sameX && sameY

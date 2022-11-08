@@ -10,6 +10,13 @@ public struct CrossResult {
     
     public let isCross: Bool
     public let point: Point
+    
+    public init(a: Int, b: Int, isCross: Bool, point: Point) {
+        self.a = a
+        self.b = b
+        self.isCross = isCross
+        self.point = point
+    }
 }
 
 public struct Geom {
@@ -29,7 +36,7 @@ public struct Geom {
     ///   - b: Point b
     ///   - c: Point c
     /// - Returns: ab || bc?
-    public func arePointsCollinear(a: Point, b: Point, c: Point) -> Bool {
+    public func arePointsCollinear(_ a: Point, _ b: Point, _ c: Point) -> Bool {
         let dx1 = a.x - b.x
         let dy1 = a.y - b.y
         let dx2 = b.x - c.x
@@ -37,7 +44,8 @@ public struct Geom {
         
         return abs(dx1 * dy2 - dx2 * dy1) < eps
     }
-    
+
+    @inlinable
     /// Are two sements crossing
     /// - Parameters:
     ///   - a0: first segment start
@@ -45,7 +53,7 @@ public struct Geom {
     ///   - b0: second segment start
     ///   - b1: second segment end
     /// - Returns: cross result
-    public func isCross(a0: Point, a1: Point, b0: Point, b1: Point) -> CrossResult {
+    public func isCross(_ a0: Point, _ a1: Point, _ b0: Point, _ b1: Point) -> CrossResult {
         let adx = a1.x - a0.x
         let ady = a1.y - a0.y
         let bdx = b1.x - b0.x
